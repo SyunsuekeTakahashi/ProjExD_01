@@ -16,16 +16,20 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        if 0 < tmr%100 < 50:
+            aa = 0
+        else:
+            aa = 1
 
         tmr += 1
         x = tmr%3200
         screen.blit(bg_img,[-x, 0])
         screen.blit(bg_imgs,[1600-x,0])
         screen.blit(bg_img,[3200-x,0])
-        screen.blit(kk_imgs[tmr%2], [300, 200])
+        screen.blit(kk_imgs[aa], [300, 200])
         
         pg.display.update()
-        clock.tick(500)
+        clock.tick(100)
 
 
 if __name__ == "__main__":
